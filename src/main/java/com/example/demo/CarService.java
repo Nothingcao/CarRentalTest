@@ -24,6 +24,10 @@ public class CarService {
 		return carRepository.findAll();
 	}
 	
+	public Car findCarByCarNo(Long carNo) {
+		return carRepository.findById(carNo).isPresent()?carRepository.findById(carNo).get():null;
+	}
+	
 	public Iterable<Car> getCarByBrandName(String brandName){
 		return carRepository.findCarByBrandName(brandName);
 	}
